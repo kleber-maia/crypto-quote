@@ -10,7 +10,7 @@ https://github.com/kleber-maia/crypto-quote/assets/10270929/0084d593-b640-43e8-8
 
 - Contains a hardcoded list of ten cryptocurrencies.
 - Fetches the most recent quotes for those coins.
-- Shows relevant information for a given coin at a time.
+- Shows relevant information for a given coin, one at a time.
 - Automatically switches between coins every 10 secs.
 - Allows the user to switch between coins.
 - Automatically fetches new data every 15 min.
