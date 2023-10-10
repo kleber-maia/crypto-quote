@@ -2,7 +2,7 @@
 //  Crypto_QuoteApp.swift
 //  Crypto Quote
 //
-//  Created by Kleber on 5/1/22.
+//  Created by Kleber Maia on 5/1/22.
 //
 
 import SwiftUI
@@ -11,7 +11,11 @@ import SwiftUI
 struct Crypto_QuoteApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            #if os(tvOS)
+            RootViewTV()
+            #else
+            Text("Work in progress")
+            #endif
         }
     }
 }

@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "9F75803B-090A-467D-AA1F-8D81AF4BDB22",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Crypto Quote.xcodeproj",
+        "identifier" : "99D5F5CE281F2DDE00685C8C",
+        "name" : "Crypto QuoteTests"
+      }
+    }
+  ],
+  "version" : 1
+}
