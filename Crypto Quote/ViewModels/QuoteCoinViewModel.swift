@@ -8,6 +8,8 @@
 import Foundation
 
 class QuoteCoinViewModel: ObservableObject {
+    struct MissingData: Error {}
+
     var circulatingSupply: String {
         "\(quoteCoinModel.circulatingSupply.formatted(.number.notation(.compactName))) \(symbol)"
     }
@@ -111,11 +113,14 @@ class QuoteCoinViewModel: ObservableObject {
     private let quoteCoinModel: QuoteCoinModel
     private let price: QuotePriceModel
 
-    init(infoCoinModel: InfoCoinModel, quoteCoinModel: QuoteCoinModel) {
+    init(infoCoinModel: InfoCoinModel, quoteCoinModel: QuoteCoinModel) throws {
+        guard let price = quoteCoinModel.quote.values.first else {
+            throw MissingData()
+        }
+
         self.infoCoinModel = infoCoinModel
         self.quoteCoinModel = quoteCoinModel
-
-        self.price = quoteCoinModel.quote.values.first.unsafelyUnwrapped
+        self.price = price
     }
 }
 

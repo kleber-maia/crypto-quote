@@ -30,7 +30,13 @@ class QuoteViewModel: ObservableObject {
               let quoteModel = quoteModel.data[selectedSymbol.id] else {
             return nil
         }
-        return QuoteCoinViewModel(infoCoinModel: infoModel, quoteCoinModel: quoteModel)
+        do {
+            return try QuoteCoinViewModel(infoCoinModel: infoModel, quoteCoinModel: quoteModel)
+        } catch {
+            self.error = error
+
+            return nil
+        }
     }
     /// Symbol / coin to be presented to the user.
     @Published private(set) var selectedSymbol: SymbolModel?
@@ -58,7 +64,14 @@ class QuoteViewModel: ObservableObject {
               let quoteModel = quoteModel.data[symbol.id] else {
             return nil
         }
-        return QuoteCoinViewModel(infoCoinModel: infoModel, quoteCoinModel: quoteModel)
+
+        do {
+            return try QuoteCoinViewModel(infoCoinModel: infoModel, quoteCoinModel: quoteModel)
+        } catch {
+            self.error = error
+
+            return nil
+        }
     }
 
     /// Starts refreshing the quotes from the server.
